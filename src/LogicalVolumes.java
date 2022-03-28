@@ -10,4 +10,5 @@ public class LogicalVolumes extends LVM{
     public int getSize() {
         return size;
     }
+
 }
