@@ -1,6 +1,8 @@
 public class PhysicalVolumes extends LVM{
 
     private PhysicalHardDrive hardDrive;
+    private boolean taken;
+    private VolumeGroups volumeGroup;
 
     public PhysicalVolumes(String n, PhysicalHardDrive hardD) {
         super(n);
@@ -11,5 +13,16 @@ public class PhysicalVolumes extends LVM{
     public PhysicalHardDrive getHardDrive() {
         return hardDrive;
     }
-
+    public boolean getTaken() {
+        return taken;
+    }
+    public void taken() {
+        taken = true;
+    }
+    public VolumeGroups getVolumeGroup() {
+        return volumeGroup;
+    }
+    public boolean hasVolume() {
+        return volumeGroup != null;
+    }
 }

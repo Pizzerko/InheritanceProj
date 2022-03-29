@@ -4,6 +4,7 @@ public class PhysicalHardDrive extends LVM{
 
     private int size;
     private boolean taken;
+
     public PhysicalHardDrive(String n, int size) {
         super(n);
         this.size = size;
@@ -14,10 +15,17 @@ public class PhysicalHardDrive extends LVM{
         return size;
     }
 
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
     public boolean getTaken() {
         return taken;
     }
     public void taken() {
         taken = true;
     }
+
+
 }
