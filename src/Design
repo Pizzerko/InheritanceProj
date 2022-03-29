@@ -1,0 +1,4 @@
+My Physical Hard Drive class extends from my LVM, where it inherits the name variable. It's unique elements are its size and a boolean on whether it's used by a physical volume.
+I incorporated getter methods for all 3 elements, taken() to check whether it's taken, super.getname() to check availability of the hard drive, and getsize() for the physical volume.
+
+My PhysicalVolume class extends from my LVM, where it only inherits the name element. It's unique elements are a 
