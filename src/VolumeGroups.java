@@ -9,10 +9,10 @@ public class VolumeGroups extends LVM{
         super(n);
         Logical = new ArrayList<LogicalVolumes>();
         Physical = new ArrayList<PhysicalVolumes>();
-        for(int i = 0; i < Physical.size(); i++) {
-            size += Physical.get(i).getHardDrive().getSize();
-        }
         Physical.add(pv);
+        for(int i = 0; i < Physical.size(); i++) {
+            size = Physical.get(i).getHardDrive().getSize() + size;
+        }
     }
 
     public int getSize() {
@@ -62,7 +62,6 @@ public class VolumeGroups extends LVM{
         else
         {
             Logical.add(lv);
-            size += lvSize;
             return true;
         }
     }

@@ -60,6 +60,7 @@ public class Lister {
         LogicalVolumes lv = new LogicalVolumes(name, size, vg);
         if(vg.addLV(lv) == false) return false;
         Logical.add(lv);
+        vg.addLV(lv);
         return true;
     }
     public void listLogical() {
@@ -78,6 +79,7 @@ public class Lister {
         VolumeGroups vg = new VolumeGroups(vgName, pv);
         VGroups.add(vg);
         pv.taken();
+        pv.addVolumeG(vg);
         return true;
     }
 
@@ -100,7 +102,11 @@ public class Lister {
 
     public void vgList() {
         for(int i = 0; i < VGroups.size(); i++) {
-            System.out.println("vg" + (i + 1) + ": total: [" + VGroups.get(i).getSize() + "G] available: [" + VGroups.get(i).getAvailableSize() + "G] [" + VGroups.get(i).getPhysical().toString() + "] [" + VGroups.get(i).getUniqueID() +"]");
+            System.out.print("vg" + (i + 1) + ": total: [" + VGroups.get(i).getSize() + "G] available: [" + VGroups.get(i).getAvailableSize() + "G] [");
+        for(int ii = 0; ii < VGroups.get(i).getPhysical().size(); ii++) {
+            System.out.print(VGroups.get(i).getPhysical().get(ii).getName() + "] [");
+        }
+        System.out.println(VGroups.get(i).getUniqueID() +"]");
         }
     }
 

@@ -22,7 +22,7 @@ public class PhysicalVolumes extends LVM{
     public VolumeGroups getVolumeGroup() {
         return volumeGroup;
     }
-    public boolean hasVolume() {
-        return volumeGroup != null;
+    public void addVolumeG(VolumeGroups vg) {
+        volumeGroup = vg;
     }
 }
