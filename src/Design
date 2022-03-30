@@ -17,3 +17,11 @@ a lack of storage.
 My LVM class is the parent class of all my other 4 classes. It's main job is to connect all the classes within one class so the UUID can be made elsewhere. This way, it won't disrupt 
 the important functions of my other classes and have incorrect inheritance between classes. It also holds a name variable so every other class doesn't need to have it's own
 name method. 
+
+My Lister class is what helps my program take in user function and function properly. The main methods of creating hard drives, physical volumes, etc and listing out each
+list is all kept in my lister. This class is out of any relation with my other 5 classes, except for adding objects into lists in the volume group or accessing information
+to print out. These methods are incorporated into the main class where user input is received and only the method is addressed.
+
+My main class only holds the user input, with little to no logic whatsoever. Many if conditions are made to capture the user commands and correctly designate the correct method
+for the specific command. Only commands are called, which are from the Lister class, the logic part of my program. There are a total of 10 commands the user can call for:
+4 creation, 1 extension, 4 list calls, and 1 exit/save.
