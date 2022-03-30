@@ -60,7 +60,6 @@ public class Lister {
         LogicalVolumes lv = new LogicalVolumes(name, size, vg);
         if(vg.addLV(lv) == false) return false;
         Logical.add(lv);
-        vg.addLV(lv);
         return true;
     }
     public void listLogical() {
@@ -70,6 +69,9 @@ public class Lister {
     }
 
     public boolean vgCreate(String vgName, String pvName) {
+        for(VolumeGroups groups : VGroups) {
+            if(groups.getName().equals(vgName)) return false;
+        }
         PhysicalVolumes pv = null;
         for(PhysicalVolumes physicalV : Physical) {
             if(physicalV.getName().equals(pvName)) pv = physicalV;

@@ -1,0 +1,27 @@
+My Physical Hard Drive class extends from my LVM, where it inherits the name variable. It's unique elements are its size and a boolean on whether it's used by a physical volume.
+I incorporated getter methods for all 3 elements, taken() to check whether it's taken, super.getname() to check availability of the hard drive, and getsize() for the physical volume.
+THe physical hard drive is to connect with the physical volume and provide storage. 
+
+My PhysicalVolume class extends from my LVM, where it only inherits the name element. It's unique elements are a hard drive and a boolean variable taken to test whether 
+the physical volume is assigned to a volume group or not. The physcial volume makes up the amount of storage in my volume group
+
+My VolumeGroups class extends from the LVM, where it inherits the name and UUID. The Volume Group's main role is to hold two lists, a physical volume list that provides storage
+and a logical volume list that uses up the available storage. Because of so, I created arraylists holding objects with the two specific class types. I incorporated getter methods
+for my lister class to help provide information and methods that add objects into the lists, when allowed. I incorporated the calculation of finding the size in the constructor 
+and available size after the logical volumes are deducted.
+
+My LogicalVolume class extends from the LVM, where it inherits the name and UUID. It's unique elements include it's size, which takes up storage in the volume group, and the 
+volume group it's connceted with. It is connected with the volume group, having the opposite role of the physical volume. Creating a logical volume object is restricted if there is
+a lack of storage.
+
+My LVM class is the parent class of all my other 4 classes. It's main job is to connect all the classes within one class so the UUID can be made elsewhere. This way, it won't disrupt 
+the important functions of my other classes and have incorrect inheritance between classes. It also holds a name variable so every other class doesn't need to have it's own
+name method. 
+
+My Lister class is what helps my program take in user function and function properly. The main methods of creating hard drives, physical volumes, etc and listing out each
+list is all kept in my lister. This class is out of any relation with my other 5 classes, except for adding objects into lists in the volume group or accessing information
+to print out. These methods are incorporated into the main class where user input is received and only the method is addressed.
+
+My main class only holds the user input, with little to no logic whatsoever. Many if conditions are made to capture the user commands and correctly designate the correct method
+for the specific command. Only commands are called, which are from the Lister class, the logic part of my program. There are a total of 10 commands the user can call for:
+4 creation, 1 extension, 4 list calls, and 1 exit/save.

@@ -19,7 +19,7 @@ public class main {
                 }
             }
 
-            else if(command.equals("pvCreate")){
+            else if(command.equals("pvcreate")){
             if(runner.pvCreate(split[1], split[2]) == false) System.out.println("Error, broken.");
             else {
                 System.out.println("Physical Volume Scucessfully Installed");
@@ -27,21 +27,21 @@ public class main {
             }
 
             else if(command.equals("vgcreate")) {
-            if(runner.vgCreate(split[1], split[2]) == false) System.out.println("Fix your error.");
+            if(runner.vgCreate(split[1], split[2]) == false) System.out.println("Fix your error, same name, taken physical v, or doesn't exist.");
             else{
                 System.out.println("Volume Group Scucessfully Installed");
             }
             }
 
             else if(command.equals("vgextend")) {
-                if(runner.vgExtend(split[1], split[2]) == false) System.out.println("A mistake was made.");
+                if(runner.vgExtend(split[1], split[2]) == false) System.out.println("A mistake was made, same name,taken physical volume, or doesn't exist.");
                 else{
                     System.out.println("Volume Group Sucessfully Extended");
                 }
             }
 
             else if(command.equals("lvcreate")) {
-            if(runner.lvCreate(split[1], Integer.parseInt(split[2]), split[3]) == false) System.out.println("Program broken, fix please.");
+            if(runner.lvCreate(split[1], Integer.parseInt(split[2]), split[3]) == false) System.out.println("Program broken, overloaded.");
             else{
                 System.out.println("Logical Volume Scucessfully Installed");
             }
